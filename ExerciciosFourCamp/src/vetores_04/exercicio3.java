@@ -4,6 +4,27 @@
 
 package vetores_04;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class exercicio3 {
+
+	public static void main(String[] args) {
+		Integer[] posicaoElemento = new Integer[10];
+		Integer[] posicaoElementox5 = new Integer[10];
+		Scanner sc = new Scanner(System.in);
+
+		for (int i = 0; i < posicaoElemento.length; i++) {
+			System.out.println("Digite um valor: ");
+			posicaoElemento[i] = sc.nextInt();
+			posicaoElementox5[i] = posicaoElemento[i] * 5;
+		}
+
+			System.out.println("O Array normal: " + Arrays.toString(posicaoElemento));
+			System.out.println("O Array multiplicado por 5: " + Arrays.toString(posicaoElementox5));
+		
+		sc.close();
+
+	}
 
 }
