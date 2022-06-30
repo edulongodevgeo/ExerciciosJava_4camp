@@ -4,48 +4,57 @@ import java.util.Scanner;
 //2. Tem-se um conjunto de dados contendo a altura e o sexo (masculino, feminino) de 10 pessoas. 
 //Fazer um algoritmo que calcule e escreva:
 //a. a maior e a menor altura do grupo;
-//b. média de altura dos homens;
-//c. o número de mulheres.
+//b. mÃ©dia de altura dos homens;
+//c. o nÃºmero de mulheres.
 
+	import java.util.Scanner;
 
-public class exercicio02 {
-	public static void main(String[] args) {
+	public class exercicio02 {
 
-	//criar o scanner
-	Scanner entrada = new Scanner(System.in);
+	    public static void main(String[] args) {
 
-	//criar as variáveis
-	//P.s.: Em JAVA, há variáveis que devem ser criadas e INICIALIZADAS com um valor "inicial", por isso o " = 0".
-	int sexo, qtMulheres = 0, qtHomens = 0;
-    float altura, somaH = 0, mediaHomens, maior = 0, menor = 0;
+	        Double[] altura = new Double[10];
+	        String[] sexo = new String[10];
+	        Integer mediaHomens = 0;
 
-    //lógica implementada
-    for (int i=0; i<2; i++) {
-        System.out.print("Escolha o sexo da pessoa (1-Mulher, 2-Homem): ");
-        sexo = entrada.nextInt();
-        System.out.print("Digite a altura em centímetros (exemplo, 180cm equivale a 1,80m): ");
-        altura = entrada.nextFloat();
-        if (sexo == 1) {
-            qtMulheres++;
-        } else if (sexo == 2) {
-            qtHomens++;
-            somaH = somaH + altura;
-        } else {
-            System.out.println("Opção sexo inválido!");
-        }
-        if (altura > maior) {
-             maior = altura;
-        } else if (altura < menor){
-            menor = altura;
-        }
-    }
-    mediaHomens = somaH / qtHomens;
+	        Scanner sc = new Scanner(System.in);
 
-    System.out.println("A maior altura do grupo é de " + maior + " cm, e a menor é de " + menor + " cm.");
-    System.out.format("A média de altura dos homens é %.2f", mediaHomens);
-    System.out.print(" cm.\n");
-    System.out.println("O número de mulheres é " + qtMulheres);
+	        for (int i = 0; i < 10; i++) {
+	            System.out.println("Digite a altura da " + (i + 1) + "Âª pessoa: ");
+	            altura[i] = sc.nextDouble();
+	            System.out.println("Digite o sexo da " + (i + 1) + "Âª pessoa (M ou F - maiÃºsculo): ");
+	            sexo[i] = sc.next();
+	        }
 
-    entrada.close();
-}
-}
+	        Double maiorAltura = 0.0;
+	        Double menorAltura = 500.0;
+	        for (int i = 0; i < 10; i++) {
+	            if (altura[i] > maiorAltura) {
+	                maiorAltura = altura[i];
+	            } else if (altura[i] < menorAltura) {
+	                menorAltura = altura[i];
+	            }
+	        }
+	        System.out.println("Maior altura: " + maiorAltura);
+	        System.out.println("Menor altura: " + menorAltura);
+
+	        Double mediaAlturaHomens = 0.0;
+	        for (int i = 0; i < 10; i++) {
+	            if (sexo[i].equals("M")) {
+	                mediaAlturaHomens += altura[i];
+	            }
+	            if (sexo[i].equals("M")) {
+	                mediaHomens++;
+	            }
+	        }
+	        System.out.println("MÃ©dia de altura dos homens: " + mediaAlturaHomens / mediaHomens);
+
+	        Integer quantidadeMulheres = 0;
+	        for (int i = 0; i < 10; i++) {
+	            if (sexo[i].equals("F")) {
+	                quantidadeMulheres++;
+	            }
+	        }
+	        System.out.println("NÃºmero de mulheres: " + quantidadeMulheres);
+	    }
+	}
